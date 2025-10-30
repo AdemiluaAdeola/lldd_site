@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOS - Shaping Culture, Redefining Norms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,6 +16,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -170,6 +172,205 @@
             margin-bottom: 1rem;
         }
 
+        /* Event Schedule Section */
+        .event-schedule {
+            padding: 5rem 5%;
+            background: #f9f9f9;
+        }
+
+        .event-schedule h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .schedule-tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .schedule-tab.active {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            color: white;
+        }
+
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            color: white;
+            padding: 1.2rem 1rem;
+            text-align: left;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .schedule-table tr:hover {
+            background-color: #e8f5f7;
+        }
+
+        .schedule-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .time-column {
+            width: 15%;
+            font-weight: 600;
+        }
+
+        .duration-column {
+            width: 10%;
+        }
+
+        .segment-column {
+            width: 25%;
+            font-weight: 600;
+        }
+
+        .activity-column {
+            width: 50%;
+        }
+
+        .pillar-highlight {
+            background-color: #e3f2fd !important;
+            border-left: 4px solid #00bcd4;
+        }
+
+        .debate-highlight {
+            background-color: #f3e5f5 !important;
+            border-left: 4px solid #7b1fa2;
+        }
+
+        .special-highlight {
+            background-color: #fff8e1 !important;
+            border-left: 4px solid #ffc107;
+        }
+
+        /* Protocol Section */
+        .protocol {
+            padding: 5rem 5%;
+        }
+
+        .protocol h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .protocol-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #00bcd4;
+            transition: transform 0.3s;
+        }
+
+        .protocol-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .protocol-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .protocol-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .protocol-card li {
+            margin-bottom: 0.8rem;
+        }
+
+        .protocol-card .time {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        /* BP Debate Section */
+        .bp-debate {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            color: white;
+        }
+
+        .bp-debate h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .debate-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .debate-phase {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .debate-phase:hover {
+            transform: translateX(10px);
+        }
+
+        .debate-phase h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffc107;
+        }
+
+        .debate-phase ul {
+            padding-left: 1.5rem;
+        }
+
+        .debate-phase li {
+            margin-bottom: 0.8rem;
+        }
+
         /* Sponsors Section */
         .sponsors {
             padding: 5rem 5%;
@@ -180,124 +381,6 @@
         .sponsors h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-        }
-
-        /* Agenda Section */
-        .agenda {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-
-        .agenda h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .agenda-items {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .agenda-item {
-            background: #e3f2fd;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-align: left;
-            transition: transform 0.3s;
-        }
-
-        .agenda-item:hover {
-            transform: translateX(10px);
-        }
-
-        .agenda-icon {
-            background: white;
-            padding: 1rem;
-            border-radius: 50%;
-            font-size: 1.5rem;
-        }
-
-        /* Speakers Section */
-        .speakers {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #00bcd4, #0097a7);
-            text-align: center;
-            color: white;
-        }
-
-        .speakers h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .speakers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .speaker-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .speaker-img {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .speaker-info {
-            padding: 1.5rem;
-            color: #333;
-        }
-
-        .speaker-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-
-        .speaker-role {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            background: #333;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .social-icon:hover {
-            background: #00bcd4;
         }
 
         /* CTA Section */
@@ -403,38 +486,42 @@
             padding: 1rem;
         }
 
-        /* Waitlist Section */
-        .waitlist {
+        /* Contact Section */
+        .contact {
             padding: 5rem 5%;
             text-align: center;
         }
 
-        .waitlist h2 {
+        .contact h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
         }
 
-        .waitlist-form {
-            max-width: 500px;
-            margin: 0 auto;
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #00bcd4;
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: #00bcd4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
         }
 
         /* Footer */
@@ -470,6 +557,70 @@
             text-decoration: none;
         }
 
+        /* Timeline View for Mobile */
+        .schedule-timeline {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .timeline-item.pillar::before {
+            background: #00bcd4;
+        }
+
+        .timeline-item.debate::before {
+            background: #7b1fa2;
+        }
+
+        .timeline-item.special::before {
+            background: #ffc107;
+        }
+
+        .timeline-item.regular::before {
+            background: #4caf50;
+        }
+
+        .timeline-time {
+            font-weight: bold;
+            color: #00bcd4;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -487,17 +638,39 @@
             .nav-links {
                 display: none;
             }
+
+            .schedule-table {
+                display: none;
+            }
+
+            .schedule-timeline {
+                display: block;
+            }
+
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">⬚</div>
+        <div class="logo">LOS</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#protocol">Protocol</a></li>
+            <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><button class="btn-primary">Register</button></li>
         </ul>
@@ -506,29 +679,29 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>SHAPING CULTURE,<br><span class="highlight">REDEFINING</span> <span class="purple">NORMS</span></h1>
-        <p>Join us for an inspiring event where we explore the future of culture and innovation. Connect with thought leaders and change-makers.</p>
+        <p>LAUMSA Literary and Debating Day 2025: Breaking the "Culture of Silence" by empowering 500+ medical students with advocacy and communication skills.</p>
         
         <div class="countdown">
             <div class="countdown-item">
-                <div class="countdown-number" id="days">04</div>
+                <div class="countdown-number" id="days">00</div>
                 <div class="countdown-label">DAYS</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-number" id="hours">04</div>
+                <div class="countdown-number" id="hours">00</div>
                 <div class="countdown-label">HOURS</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-number" id="minutes">04</div>
+                <div class="countdown-number" id="minutes">00</div>
                 <div class="countdown-label">MINUTES</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-number" id="seconds">04</div>
+                <div class="countdown-number" id="seconds">00</div>
                 <div class="countdown-label">SECONDS</div>
             </div>
         </div>
 
         <div class="event-date">
-            📅 October 28th, 2025 • Virtual Event
+            <i class="fas fa-calendar-alt"></i> Friday, November 15th, 2025 • <i class="fas fa-map-marker-alt"></i> 400 Lecture Theatre, College of Health Sciences, LAUTECH
         </div>
 
         <button class="btn-primary">Register Now</button>
@@ -536,8 +709,8 @@
 
     <!-- About Section -->
     <section class="about" id="about">
-        <h2>About LOS</h2>
-        <p>LOS is a platform dedicated to fostering innovation, creativity, and meaningful connections. We bring together diverse voices to shape the future of culture and redefine societal norms.</p>
+        <h2>About LLDD '25</h2>
+        <p>LAUMSA Literary and Debating Day 2025 is a platform dedicated to fostering innovation, creativity, and meaningful connections. We bring together diverse voices to shape the future of culture and redefine societal norms.</p>
         
         <div class="features">
             <div class="feature-card">
@@ -560,10 +733,289 @@
                 <h3>Global Reach</h3>
                 <p>Connecting voices from around the world</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3>Knowledge Sharing</h3>
-                <p>Learning from industry experts and pioneers</p>
+        </div>
+    </section>
+
+    <!-- Event Schedule Section -->
+    <section class="event-schedule" id="schedule">
+        <h2>Event Schedule</h2>
+        
+        <div class="schedule-tabs">
+            <button class="schedule-tab active" data-tab="all">All Events</button>
+            <button class="schedule-tab" data-tab="pillars">Pillar Sessions</button>
+            <button class="schedule-tab" data-tab="debates">Debates</button>
+            <button class="schedule-tab" data-tab="special">Special Segments</button>
+        </div>
+        
+        <div class="schedule-container">
+            <!-- Desktop Table View -->
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th>Segment</th>
+                        <th>Activity / Protocol Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="regular">
+                        <td class="time-column">08:00 - 09:00</td>
+                        <td class="duration-column">60 min</td>
+                        <td class="segment-column">Setup & Pre-Event Check</td>
+                        <td class="activity-column">Technical setup complete, usher briefing, delegate registration materials ready.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">09:00 - 09:30</td>
+                        <td class="duration-column">30 min</td>
+                        <td class="segment-column">Registration & Seating</td>
+                        <td class="activity-column">Attendees seated. Music plays. Ushers distribute complimentary Swag/Water/Programs.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">09:30 - 09:40</td>
+                        <td class="duration-column">10 min</td>
+                        <td class="segment-column">Opening Assembly</td>
+                        <td class="activity-column">Opening Prayer/Anthem (if applicable). Welcome address by LOC Chairman.</td>
+                    </tr>
+                    <tr class="special">
+                        <td class="time-column">09:40 - 09:50</td>
+                        <td class="duration-column">10 min</td>
+                        <td class="segment-column">The Narrative Catalyst</td>
+                        <td class="activity-column">Presider (Speaker of the House) enters slightly late. Reading of Rotimi's Letter.</td>
+                    </tr>
+                    <tr class="pillar-highlight">
+                        <td class="time-column">09:50 - 10:30</td>
+                        <td class="duration-column">40 min</td>
+                        <td class="segment-column">Pillar I: Keynote Session</td>
+                        <td class="activity-column">Topic: The 21st Century Healthcare Medical Doctor. Speaker: Prof. Olugbenga Taiwo. (Includes 5 min Q&A).</td>
+                    </tr>
+                    <tr class="pillar-highlight">
+                        <td class="time-column">10:30 - 11:20</td>
+                        <td class="duration-column">50 min</td>
+                        <td class="segment-column">Pillar II: Panel Session</td>
+                        <td class="activity-column">Topic: Role of Storytelling in Inciting Change. (Includes 10 min Q&A).</td>
+                    </tr>
+                    <tr class="debate-highlight">
+                        <td class="time-column">11:20 - 12:10</td>
+                        <td class="duration-column">50 min</td>
+                        <td class="segment-column">Debate Phase I: Semi-Finals</td>
+                        <td class="activity-column">Debates based on advocacy/healthcare topics. Audience Poll (Pre-Debate) taken.</td>
+                    </tr>
+                    <tr class="special-highlight">
+                        <td class="time-column">12:10 - 12:50</td>
+                        <td class="duration-column">40 min</td>
+                        <td class="segment-column">Pillar III: Open House/BP Debate</td>
+                        <td class="activity-column">Parliamentary Open House Talk. BP-style debate on the Ethics of Rotimi's Story.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">12:50 - 13:00</td>
+                        <td class="duration-column">10 min</td>
+                        <td class="segment-column">Sponsor Spotlight Transition</td>
+                        <td class="activity-column">Brief recognition/thanks to key sponsors before the break.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">13:00 - 13:30</td>
+                        <td class="duration-column">30 min</td>
+                        <td class="segment-column">Networking & Snack Break</td>
+                        <td class="activity-column">Distribution of Donuts/Refreshments. Sponsor Display Time: 10 minutes allocated for Gold/Silver video/verbal content display.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">13:30 - 13:40</td>
+                        <td class="duration-column">10 min</td>
+                        <td class="segment-column">Interactive Session</td>
+                        <td class="activity-column">Advocacy Kahoot/Quiz Session on Rotimi's Story. Rewards given immediately. Social Media Follow Train announcement.</td>
+                    </tr>
+                    <tr class="debate-highlight">
+                        <td class="time-column">13:40 - 14:30</td>
+                        <td class="duration-column">50 min</td>
+                        <td class="segment-column">Debate Phase II: Grand Final</td>
+                        <td class="activity-column">Final Debate. Audience Poll (Post-Debate) taken for comparative analysis.</td>
+                    </tr>
+                    <tr class="pillar-highlight">
+                        <td class="time-column">14:30 - 15:00</td>
+                        <td class="duration-column">30 min</td>
+                        <td class="segment-column">Pillar IV: Fireside Chat</td>
+                        <td class="activity-column">Topic: How Young Voices Will Shape the Future. Featuring: Precious Ogunleye & Tawfiq Ibrahim.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">15:00 - 15:20</td>
+                        <td class="duration-column">20 min</td>
+                        <td class="segment-column">Magazine Launch & Awards</td>
+                        <td class="activity-column">LAUMSA Magazine Launch. Fundraising campaign announcement. Debate Awards presentation.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">15:20 - 15:30</td>
+                        <td class="duration-column">10 min</td>
+                        <td class="segment-column">Vote of Thanks & Closing</td>
+                        <td class="activity-column">Final remarks, official closing of the main event, networking invitation.</td>
+                    </tr>
+                    <tr class="regular">
+                        <td class="time-column">15:30 - 16:30</td>
+                        <td class="duration-column">60 min</td>
+                        <td class="segment-column">Post-Event Networking & Open Mic</td>
+                        <td class="activity-column">General networking. Exclusive Open Mic Session for Premium Magazine holders only.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Mobile Timeline View -->
+            <div class="schedule-timeline">
+                <div class="timeline-item regular">
+                    <div class="timeline-time">08:00 - 09:00</div>
+                    <div class="timeline-title">Setup & Pre-Event Check</div>
+                    <div class="timeline-desc">Technical setup complete, usher briefing, delegate registration materials ready.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">09:00 - 09:30</div>
+                    <div class="timeline-title">Registration & Seating</div>
+                    <div class="timeline-desc">Attendees seated. Music plays. Ushers distribute complimentary Swag/Water/Programs.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">09:30 - 09:40</div>
+                    <div class="timeline-title">Opening Assembly</div>
+                    <div class="timeline-desc">Opening Prayer/Anthem (if applicable). Welcome address by LOC Chairman.</div>
+                </div>
+                <div class="timeline-item special">
+                    <div class="timeline-time">09:40 - 09:50</div>
+                    <div class="timeline-title">The Narrative Catalyst</div>
+                    <div class="timeline-desc">Presider (Speaker of the House) enters slightly late. Reading of Rotimi's Letter.</div>
+                </div>
+                <div class="timeline-item pillar">
+                    <div class="timeline-time">09:50 - 10:30</div>
+                    <div class="timeline-title">Pillar I: Keynote Session</div>
+                    <div class="timeline-desc">Topic: The 21st Century Healthcare Medical Doctor. Speaker: Prof. Olugbenga Taiwo. (Includes 5 min Q&A).</div>
+                </div>
+                <div class="timeline-item pillar">
+                    <div class="timeline-time">10:30 - 11:20</div>
+                    <div class="timeline-title">Pillar II: Panel Session</div>
+                    <div class="timeline-desc">Topic: Role of Storytelling in Inciting Change. (Includes 10 min Q&A).</div>
+                </div>
+                <div class="timeline-item debate">
+                    <div class="timeline-time">11:20 - 12:10</div>
+                    <div class="timeline-title">Debate Phase I: Semi-Finals</div>
+                    <div class="timeline-desc">Debates based on advocacy/healthcare topics. Audience Poll (Pre-Debate) taken.</div>
+                </div>
+                <div class="timeline-item special">
+                    <div class="timeline-time">12:10 - 12:50</div>
+                    <div class="timeline-title">Pillar III: Open House/BP Debate</div>
+                    <div class="timeline-desc">Parliamentary Open House Talk. BP-style debate on the Ethics of Rotimi's Story.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">12:50 - 13:00</div>
+                    <div class="timeline-title">Sponsor Spotlight Transition</div>
+                    <div class="timeline-desc">Brief recognition/thanks to key sponsors before the break.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">13:00 - 13:30</div>
+                    <div class="timeline-title">Networking & Snack Break</div>
+                    <div class="timeline-desc">Distribution of Donuts/Refreshments. Sponsor Display Time: 10 minutes allocated for Gold/Silver video/verbal content display.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">13:30 - 13:40</div>
+                    <div class="timeline-title">Interactive Session</div>
+                    <div class="timeline-desc">Advocacy Kahoot/Quiz Session on Rotimi's Story. Rewards given immediately. Social Media Follow Train announcement.</div>
+                </div>
+                <div class="timeline-item debate">
+                    <div class="timeline-time">13:40 - 14:30</div>
+                    <div class="timeline-title">Debate Phase II: Grand Final</div>
+                    <div class="timeline-desc">Final Debate. Audience Poll (Post-Debate) taken for comparative analysis.</div>
+                </div>
+                <div class="timeline-item pillar">
+                    <div class="timeline-time">14:30 - 15:00</div>
+                    <div class="timeline-title">Pillar IV: Fireside Chat</div>
+                    <div class="timeline-desc">Topic: How Young Voices Will Shape the Future. Featuring: Precious Ogunleye & Tawfiq Ibrahim.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">15:00 - 15:20</div>
+                    <div class="timeline-title">Magazine Launch & Awards</div>
+                    <div class="timeline-desc">LAUMSA Magazine Launch. Fundraising campaign announcement. Debate Awards presentation.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">15:20 - 15:30</div>
+                    <div class="timeline-title">Vote of Thanks & Closing</div>
+                    <div class="timeline-desc">Final remarks, official closing of the main event, networking invitation.</div>
+                </div>
+                <div class="timeline-item regular">
+                    <div class="timeline-time">15:30 - 16:30</div>
+                    <div class="timeline-title">Post-Event Networking & Open Mic</div>
+                    <div class="timeline-desc">General networking. Exclusive Open Mic Session for Premium Magazine holders only.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protocol Section -->
+    <section class="protocol" id="protocol">
+        <h2>Core Program Protocol</h2>
+        <div class="protocol-grid">
+            <div class="protocol-card">
+                <h3>The Narrative Catalyst</h3>
+                <p class="time">09:40 - 09:50</p>
+                <ul>
+                    <li><strong>Presider Protocol:</strong> The Presider arrives 5 minutes late to simulate disorganization of the system.</li>
+                    <li><strong>Letter Delivery:</strong> Reading of the emotional "Rotimi's Letter" to frame the event as a response to systemic failure.</li>
+                    <li><strong>Agenda Transition:</strong> Presider calls the house to order and transitions to the Keynote speaker.</li>
+                </ul>
+            </div>
+            <div class="protocol-card">
+                <h3>Keynote & Panel Sessions</h3>
+                <ul>
+                    <li><strong>Time Guard:</strong> Strict adherence to allotted time (40 min Keynote, 50 min Panel).</li>
+                    <li><strong>Q&A Protocol:</strong> Questions pre-vetted or screened live to ensure relevance to the theme.</li>
+                </ul>
+            </div>
+            <div class="protocol-card">
+                <h3>Debate Competition</h3>
+                <ul>
+                    <li><strong>Audience Polling:</strong> Digital poll administered before semi-finals and after finals to measure perspective shift.</li>
+                    <li><strong>Judges Protocol:</strong> Judges isolated during deliberation. Chief Judge announces results with brief feedback.</li>
+                </ul>
+            </div>
+            <div class="protocol-card">
+                <h3>Fireside Chat & Magazine Launch</h3>
+                <ul>
+                    <li><strong>Focus:</strong> Interviewee's role in shaping the future and value of persistent voice.</li>
+                    <li><strong>Launch Sequence:</strong> Introduction of editorial team, unveiling of LAUMSA Magazine, fundraising campaign announcement.</li>
+                </ul>
+            </div>
+            <div class="protocol-card">
+                <h3>Sponsor Display & Break</h3>
+                <p class="time">13:00 - 13:30</p>
+                <ul>
+                    <li><strong>Total Sponsor Time:</strong> 20 minutes allocated throughout the day.</li>
+                    <li><strong>Media Protocol:</strong> Gold sponsors receive 3 minutes; Silver sponsors receive 1 minute.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BP Debate Section -->
+    <section class="bp-debate">
+        <h2>BP-Style Debate Protocol</h2>
+        <div class="debate-container">
+            <div class="debate-phase">
+                <h3>Pre-Event Setup</h3>
+                <ul>
+                    <li><strong>The Narrative Hook:</strong> Rotimi Letter reading introduces the core dilemma.</li>
+                    <li><strong>Moderator Briefing:</strong> Focus on systemic issues and ethical principles, not personal attacks.</li>
+                    <li><strong>Room Configuration:</strong> Parliamentary-style seating to encourage participation.</li>
+                </ul>
+            </div>
+            <div class="debate-phase">
+                <h3>During Event Execution</h3>
+                <ul>
+                    <li><strong>Introduction:</strong> Moderator introduces the motion regarding Rotimi's advocacy.</li>
+                    <li><strong>Combat-Style Discussion:</strong> Facilitates two distinct sides with brief interventions.</li>
+                    <li><strong>Floor Management:</strong> Balancing speakers from opposing viewpoints.</li>
+                    <li><strong>Closing:</strong> Synthesizing arguments and linking to need for advocacy training.</li>
+                </ul>
+            </div>
+            <div class="debate-phase">
+                <h3>Post-Event Follow-up</h3>
+                <ul>
+                    <li><strong>Content Extraction:</strong> Isolate powerful quotes for social media content.</li>
+                    <li><strong>Training Conversion:</strong> Use emotional engagement to market advocacy training programs.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -573,128 +1025,6 @@
         <h2>Our Sponsors</h2>
         <p>We're proud to partner with industry leaders who share our vision</p>
         <button class="btn-primary" style="margin-top: 2rem;">Become a Sponsor</button>
-    </section>
-
-    <!-- Agenda Section -->
-    <section class="agenda" id="agenda">
-        <h2>Event's Agenda</h2>
-        
-        <div class="agenda-items">
-            <div class="agenda-item">
-                <div class="agenda-icon">🎤</div>
-                <div>
-                    <h3>Opening Keynote</h3>
-                    <p>Welcome address and introduction to the event theme</p>
-                    <small>9:00 AM - 10:00 AM</small>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-icon">💼</div>
-                <div>
-                    <h3>Panel Discussion</h3>
-                    <p>Industry leaders discuss the future of innovation</p>
-                    <small>10:30 AM - 12:00 PM</small>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-icon">🍽️</div>
-                <div>
-                    <h3>Networking Lunch</h3>
-                    <p>Connect with fellow attendees and speakers</p>
-                    <small>12:00 PM - 1:30 PM</small>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-icon">🎨</div>
-                <div>
-                    <h3>Workshop Sessions</h3>
-                    <p>Hands-on activities and collaborative projects</p>
-                    <small>2:00 PM - 4:00 PM</small>
-                </div>
-            </div>
-            <div class="agenda-item">
-                <div class="agenda-icon">🎉</div>
-                <div>
-                    <h3>Closing Ceremony</h3>
-                    <p>Final thoughts and celebration of insights</p>
-                    <small>4:30 PM - 5:30 PM</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Speakers Section -->
-    <section class="speakers" id="speakers">
-        <h2>Meet the Speakers</h2>
-        
-        <div class="speakers-grid">
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">Sarah Johnson</div>
-                    <div class="speaker-role">CEO, Tech Innovations</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">Michael Chen</div>
-                    <div class="speaker-role">Creative Director</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">Emma Davis</div>
-                    <div class="speaker-role">Innovation Lead</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">James Wilson</div>
-                    <div class="speaker-role">Design Strategist</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">Lisa Anderson</div>
-                    <div class="speaker-role">Brand Expert</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-            <div class="speaker-card">
-                <div class="speaker-img"></div>
-                <div class="speaker-info">
-                    <div class="speaker-name">David Martinez</div>
-                    <div class="speaker-role">Tech Visionary</div>
-                    <div class="social-links">
-                        <div class="social-icon">in</div>
-                        <div class="social-icon">🐦</div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- CTA Section -->
@@ -715,7 +1045,7 @@
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>LOS is an innovative event bringing together thought leaders, creatives, and change-makers to discuss the future of culture and innovation.</p>
+                    <p>LLDD '25 is an innovative event bringing together thought leaders, creatives, and change-makers to discuss the future of culture and innovation in healthcare advocacy.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -733,7 +1063,7 @@
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>This is a virtual event accessible from anywhere in the world with an internet connection.</p>
+                    <p>This is an in-person event taking place at 400 Lecture Theatre, College of Health Sciences, LAUTECH.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -742,14 +1072,14 @@
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Your ticket includes access to all sessions, networking opportunities, workshop materials, and event recordings.</p>
+                    <p>Your ticket includes access to all sessions, networking opportunities, workshop materials, refreshments, and event recordings.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="team">
+    <section class="team" id="team">
         <h2>Meet the Team</h2>
         <p>The passionate individuals making this event possible</p>
         
@@ -757,82 +1087,78 @@
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Jennifer Brown</h4>
-                    <p>Event Director</p>
+                    <h4>El-Ameen Falana</h4>
+                    <p>LOC Chairman</p>
                 </div>
             </div>
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Robert Taylor</h4>
-                    <p>Operations Manager</p>
+                    <h4>Program Coordinator</h4>
+                    <p>Program Lead</p>
                 </div>
             </div>
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Maria Garcia</h4>
-                    <p>Marketing Lead</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="team-img"></div>
-                <div class="team-info">
-                    <h4>Thomas Lee</h4>
+                    <h4>Technical Lead</h4>
                     <p>Technical Director</p>
                 </div>
             </div>
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Amanda White</h4>
-                    <p>Content Strategist</p>
+                    <h4>Floor Manager</h4>
+                    <p>Audience & Protocol</p>
                 </div>
             </div>
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Chris Johnson</h4>
-                    <p>Community Manager</p>
+                    <h4>Media Lead</h4>
+                    <p>Visibility & Capture</p>
                 </div>
             </div>
             <div class="team-member">
                 <div class="team-img"></div>
                 <div class="team-info">
-                    <h4>Patricia Moore</h4>
-                    <p>Design Lead</p>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="team-img"></div>
-                <div class="team-info">
-                    <h4>Kevin Davis</h4>
-                    <p>Partnerships Manager</p>
+                    <h4>Welfare Lead</h4>
+                    <p>Hospitality</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Waitlist Section -->
-    <section class="waitlist" id="contact">
-        <h2>Join the Waitlist</h2>
-        <p>Be the first to know about updates and early bird offers</p>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or need more information? Reach out to us!</p>
         
-        <form class="waitlist-form">
-            <div class="form-group">
-                <input type="text" placeholder="Full Name" required>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p>info@lldd25.com</p>
             </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email Address" required>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Phone</h3>
+                <p>+1 (555) 123-4567</p>
             </div>
-            <div class="form-group">
-                <input type="tel" placeholder="Phone Number">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Location</h3>
+                <p>400 Lecture Theatre, College of Health Sciences, LAUTECH</p>
             </div>
-            <div class="form-group">
-                <textarea rows="4" placeholder="Why do you want to attend?"></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Submit</button>
-        </form>
+        </div>
+        
+        <button class="btn-primary">Send Us a Message</button>
     </section>
 
     <!-- Footer -->
@@ -841,7 +1167,7 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul class="footer-links">
-                    <li>info@losevent.com</li>
+                    <li>info@lldd25.com</li>
                     <li>+1 (555) 123-4567</li>
                 </ul>
             </div>
@@ -849,26 +1175,27 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#agenda">Agenda</a></li>
-                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#protocol">Protocol</a></li>
+                    <li><a href="#team">Team</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <div class="social-icon">f</div>
-                    <div class="social-icon">🐦</div>
-                    <div class="social-icon">in</div>
-                    <div class="social-icon">📷</div>
+                    <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+                    <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                    <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="social-icon"><i class="fab fa-instagram"></i></div>
                 </div>
             </div>
         </div>
-        <p>&copy; 2025 LOS Event. All rights reserved.</p>
+        <p>&copy; 2025 LLDD Event. All rights reserved.</p>
     </footer>
 
     <script>
-        // Countdown Timer
-        const eventDate = new Date('2025-10-28T09:00:00').getTime();
+        // Countdown Timer - Updated for November 15, 2025
+        const eventDate = new Date('2025-11-15T09:00:00').getTime();
         
         function updateCountdown() {
             const now = new Date().getTime();
@@ -919,11 +1246,49 @@
             });
         });
         
-        // Form Submission
-        document.querySelector('.waitlist-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for joining the waitlist! We\'ll be in touch soon.');
-            e.target.reset();
+        // Schedule Tabs
+        const scheduleTabs = document.querySelectorAll('.schedule-tab');
+        const scheduleRows = document.querySelectorAll('.schedule-table tbody tr');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        scheduleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                scheduleTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-tab');
+                
+                // Filter table rows
+                scheduleRows.forEach(row => {
+                    if (filter === 'all') {
+                        row.style.display = '';
+                    } else if (filter === 'pillars' && row.classList.contains('pillar-highlight')) {
+                        row.style.display = '';
+                    } else if (filter === 'debates' && row.classList.contains('debate-highlight')) {
+                        row.style.display = '';
+                    } else if (filter === 'special' && (row.classList.contains('special-highlight') || row.classList.contains('special'))) {
+                        row.style.display = '';
+                    } else if (filter !== 'all') {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Filter timeline items
+                timelineItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
+                    } else if (filter === 'pillars' && item.classList.contains('pillar')) {
+                        item.style.display = 'block';
+                    } else if (filter === 'debates' && item.classList.contains('debate')) {
+                        item.style.display = 'block';
+                    } else if (filter === 'special' && item.classList.contains('special')) {
+                        item.style.display = 'block';
+                    } else if (filter !== 'all') {
+                        item.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>
