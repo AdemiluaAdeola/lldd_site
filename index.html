@@ -947,57 +947,52 @@
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 3rem;
             margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-section h3:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: white;
-            bottom: -8px;
-            left: 0;
-            border-radius: 2px;
         }
 
         .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s;
+            font-weight: 500;
         }
 
         .footer-links a:hover {
             color: white;
         }
 
+        .social-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
         .social-icons {
             display: flex;
-            gap: 1rem;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
@@ -1006,18 +1001,20 @@
             transition: all 0.3s ease;
             color: white;
             text-decoration: none;
+            font-size: 1.3rem;
         }
 
         .social-icon:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
         .footer-bottom {
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
+            width: 100%;
         }
 
         /* Story Link Button */
@@ -1031,6 +1028,7 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
         }
 
@@ -1087,16 +1085,6 @@
                 font-size: 2.2rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-section h3:after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
             .waitlist-form {
                 flex-direction: column;
                 align-items: center;
@@ -1104,6 +1092,21 @@
 
             .waitlist-form input {
                 width: 100%;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .social-icons {
+                gap: 1rem;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1483,70 +1486,6 @@
         </div>
     </section>
 
-    <!-- BP Debate Section -->
-    <section class="bp-debate">
-        <div class="section-header">
-            <h2>BP-Style Debate Protocol</h2>
-            <p>British Parliamentary debate format guidelines and procedures</p>
-        </div>
-        <div class="debate-container">
-            <div class="debate-phase">
-                <h3>Pre-Event Setup</h3>
-                <ul>
-                    <li><strong>The Narrative Hook:</strong> Rotimi Letter reading introduces the core dilemma.</li>
-                    <li><strong>Moderator Briefing:</strong> Focus on systemic issues and ethical principles, not personal attacks.</li>
-                    <li><strong>Room Configuration:</strong> Parliamentary-style seating to encourage participation.</li>
-                </ul>
-            </div>
-            <div class="debate-phase">
-                <h3>During Event Execution</h3>
-                <ul>
-                    <li><strong>Introduction:</strong> Moderator introduces the motion regarding Rotimi's advocacy.</li>
-                    <li><strong>Combat-Style Discussion:</strong> Facilitates two distinct sides with brief interventions.</li>
-                    <li><strong>Floor Management:</strong> Balancing speakers from opposing viewpoints.</li>
-                    <li><strong>Closing:</strong> Synthesizing arguments and linking to need for advocacy training.</li>
-                </ul>
-            </div>
-            <div class="debate-phase">
-                <h3>Post-Event Follow-up</h3>
-                <ul>
-                    <li><strong>Content Extraction:</strong> Isolate powerful quotes for social media content.</li>
-                    <li><strong>Training Conversion:</strong> Use emotional engagement to market advocacy training programs.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Waitlist Section -->
-    <section class="waitlist">
-        <div class="section-header">
-            <h2>Join The Waitlist</h2>
-            <p>Be the first to know when registration opens and secure your spot</p>
-        </div>
-        
-        <div class="waitlist-form">
-            <input type="email" placeholder="Enter your email address">
-            <button class="btn-primary">Join Waitlist</button>
-        </div>
-        
-        <p style="margin-top: 1.5rem; color: var(--gray);">We respect your privacy. Your email will only be used for event updates.</p>
-    </section>
-
-    <!-- Sponsors Section -->
-    <section class="sponsors">
-        <div class="section-header">
-            <h2>Our Sponsors</h2>
-            <p>We're proud to partner with industry leaders who share our vision</p>
-        </div>
-        <div class="sponsor-logos">
-            <div class="sponsor-logo">Sponsor 1</div>
-            <div class="sponsor-logo">Sponsor 2</div>
-            <div class="sponsor-logo">Sponsor 3</div>
-            <div class="sponsor-logo">Sponsor 4</div>
-        </div>
-        <button class="btn-primary">Become a Sponsor</button>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-content">
@@ -1693,24 +1632,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <ul class="footer-links">
-                    <li>laumsald2025@gmail.com</li>
-                    <li>+234 903 183 4010</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#schedule">Schedule</a></li>
-                    <li><a href="#protocol">Protocol</a></li>
-                    <li><a href="#story">Story</a></li>
-                    <li><a href="#team">Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
+            <div class="social-section">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -1718,6 +1640,15 @@
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/laumsaliteraryanddebatingday?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#protocol">Protocol</a>
+                <a href="#story">Story</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
         <div class="footer-bottom">
