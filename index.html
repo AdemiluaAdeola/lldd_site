@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOS - Shaping Culture, Redefining Norms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00bcd4;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5f7 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: #00bcd4;
+        }
+
+        .hero h1 .purple {
+            color: #7b1fa2;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0 2rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .countdown-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .event-date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            padding: 5rem 5%;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .sponsors h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Agenda Section */
+        .agenda {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .agenda h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .agenda-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .agenda-item {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .agenda-item:hover {
+            transform: translateX(10px);
+        }
+
+        .agenda-icon {
+            background: white;
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
+        /* Speakers Section */
+        .speakers {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            text-align: center;
+            color: white;
+        }
+
+        .speakers h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .speaker-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .speaker-img {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .speaker-info {
+            padding: 1.5rem;
+            color: #333;
+        }
+
+        .speaker-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .speaker-role {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #00bcd4;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 5%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23667eea" width="1200" height="400"/></svg>');
+            background-size: cover;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            margin: 3rem 5%;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .faq-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #00bcd4;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 300px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 5rem 5%;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .team-info {
+            padding: 1rem;
+        }
+
+        /* Waitlist Section */
+        .waitlist {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .waitlist h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #00bcd4;
+        }
+
+        /* Footer */
+        footer {
+            background: #00bcd4;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⬚</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#agenda">Agenda</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="btn-primary">Register</button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>SHAPING CULTURE,<br><span class="highlight">REDEFINING</span> <span class="purple">NORMS</span></h1>
+        <p>Join us for an inspiring event where we explore the future of culture and innovation. Connect with thought leaders and change-makers.</p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">04</div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">04</div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">04</div>
+                <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">04</div>
+                <div class="countdown-label">SECONDS</div>
+            </div>
+        </div>
+
+        <div class="event-date">
+            📅 October 28th, 2025 • Virtual Event
+        </div>
+
+        <button class="btn-primary">Register Now</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About LOS</h2>
+        <p>LOS is a platform dedicated to fostering innovation, creativity, and meaningful connections. We bring together diverse voices to shape the future of culture and redefine societal norms.</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Mission Driven</h3>
+                <p>Creating positive impact through meaningful dialogue and action</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Community Focus</h3>
+                <p>Building connections that last beyond the event</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3>Innovation First</h3>
+                <p>Exploring cutting-edge ideas and solutions</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Reach</h3>
+                <p>Connecting voices from around the world</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Knowledge Sharing</h3>
+                <p>Learning from industry experts and pioneers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors">
+        <h2>Our Sponsors</h2>
+        <p>We're proud to partner with industry leaders who share our vision</p>
+        <button class="btn-primary" style="margin-top: 2rem;">Become a Sponsor</button>
+    </section>
+
+    <!-- Agenda Section -->
+    <section class="agenda" id="agenda">
+        <h2>Event's Agenda</h2>
+        
+        <div class="agenda-items">
+            <div class="agenda-item">
+                <div class="agenda-icon">🎤</div>
+                <div>
+                    <h3>Opening Keynote</h3>
+                    <p>Welcome address and introduction to the event theme</p>
+                    <small>9:00 AM - 10:00 AM</small>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="agenda-icon">💼</div>
+                <div>
+                    <h3>Panel Discussion</h3>
+                    <p>Industry leaders discuss the future of innovation</p>
+                    <small>10:30 AM - 12:00 PM</small>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="agenda-icon">🍽️</div>
+                <div>
+                    <h3>Networking Lunch</h3>
+                    <p>Connect with fellow attendees and speakers</p>
+                    <small>12:00 PM - 1:30 PM</small>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="agenda-icon">🎨</div>
+                <div>
+                    <h3>Workshop Sessions</h3>
+                    <p>Hands-on activities and collaborative projects</p>
+                    <small>2:00 PM - 4:00 PM</small>
+                </div>
+            </div>
+            <div class="agenda-item">
+                <div class="agenda-icon">🎉</div>
+                <div>
+                    <h3>Closing Ceremony</h3>
+                    <p>Final thoughts and celebration of insights</p>
+                    <small>4:30 PM - 5:30 PM</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers" id="speakers">
+        <h2>Meet the Speakers</h2>
+        
+        <div class="speakers-grid">
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">Sarah Johnson</div>
+                    <div class="speaker-role">CEO, Tech Innovations</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">Michael Chen</div>
+                    <div class="speaker-role">Creative Director</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">Emma Davis</div>
+                    <div class="speaker-role">Innovation Lead</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">James Wilson</div>
+                    <div class="speaker-role">Design Strategist</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">Lisa Anderson</div>
+                    <div class="speaker-role">Brand Expert</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-img"></div>
+                <div class="speaker-info">
+                    <div class="speaker-name">David Martinez</div>
+                    <div class="speaker-role">Tech Visionary</div>
+                    <div class="social-links">
+                        <div class="social-icon">in</div>
+                        <div class="social-icon">🐦</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Get In The Loop</h2>
+        <p>Don't miss out on this transformative experience</p>
+        <button class="btn-primary" style="margin-top: 2rem;">Join the Waitlist</button>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-items">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the event about?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>LOS is an innovative event bringing together thought leaders, creatives, and change-makers to discuss the future of culture and innovation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I register?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Click the "Register Now" button at the top of the page to secure your spot at the event.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is this a virtual or in-person event?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>This is a virtual event accessible from anywhere in the world with an internet connection.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's included in the ticket?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your ticket includes access to all sessions, networking opportunities, workshop materials, and event recordings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2>Meet the Team</h2>
+        <p>The passionate individuals making this event possible</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Jennifer Brown</h4>
+                    <p>Event Director</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Robert Taylor</h4>
+                    <p>Operations Manager</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Maria Garcia</h4>
+                    <p>Marketing Lead</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Thomas Lee</h4>
+                    <p>Technical Director</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Amanda White</h4>
+                    <p>Content Strategist</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Chris Johnson</h4>
+                    <p>Community Manager</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Patricia Moore</h4>
+                    <p>Design Lead</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-img"></div>
+                <div class="team-info">
+                    <h4>Kevin Davis</h4>
+                    <p>Partnerships Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist" id="contact">
+        <h2>Join the Waitlist</h2>
+        <p>Be the first to know about updates and early bird offers</p>
+        
+        <form class="waitlist-form">
+            <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <textarea rows="4" placeholder="Why do you want to attend?"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li>info@losevent.com</li>
+                    <li>+1 (555) 123-4567</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">📷</div>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2025 LOS Event. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const eventDate = new Date('2025-10-28T09:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form Submission
+        document.querySelector('.waitlist-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for joining the waitlist! We\'ll be in touch soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
